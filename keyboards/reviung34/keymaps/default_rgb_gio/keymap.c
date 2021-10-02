@@ -35,29 +35,29 @@ enum layer_names {
 #define AL_DT RALT_T(KC_DOT)
 #define AL_LBRC RALT_T(KC_LBRC)
 #define AL_ESC RALT_T(KC_ESC)
-#define LO_BSPC LT(LOWER, KC_BSPC)
+#define LO_ENT LT(LOWER, KC_ENT)
 #define RA_SPC LT(RAISE, KC_SPC)
 #define SF_BSPC RSFT_T(KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_reviung34(
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
-    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,          KC_M,    KC_N,    KC_E,    KC_I,    KC_O,
-    CT_Z,    AL_X,    KC_C,    KC_D,    KC_V,          KC_K,    KC_H,    KC_COMMA,   AL_DT,   CT_QUOT,
-                        LO_BSPC,  KC_LSHIFT,          KC_RGUI,   RA_SPC
+    LSFT_T(KC_A),     LALT_T(KC_R),    LCTL_T(KC_S),    LGUI_T(KC_T),    KC_G,          KC_M,    RGUI_T(KC_N),    RCTL_T(KC_E),    RALT_T(KC_I),    RSFT_T(KC_O),
+    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,          KC_K,    KC_H,    KC_COMMA,   KC_DOT,   KC_QUOT,
+                        LO_ENT,  LO_ENT,          RA_SPC, RA_SPC  
   ),
 
   [_LOWER] = LAYOUT_reviung34(
     KC_F9, KC_F10, KC_F11, KC_F12, XXXXXXX,            KC_PLUS, KC_7, KC_8, KC_9, KC_ASTR,
     KC_F5, KC_F6,  KC_F7, KC_F8, XXXXXXX,              KC_MINS, KC_4, KC_5,  KC_6, KC_0,
-    KC_F1, KC_F2,  KC_F3, KC_F4, XXXXXXX,              KC_SLSH, KC_1, KC_2, KC_3, KC_EQL,
+    KC_F1, KC_F2,  KC_F3, KC_F4, KC_SPC,              KC_SLSH, KC_1, KC_2, KC_3, KC_EQL,
                         _______, _______,              _______, _______
   ),
 
   [_RAISE] = LAYOUT_reviung34(
     KC_QUES, KC_LPRN, KC_RPRN, KC_PIPE, XXXXXXX,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX,
-    KC_SLSH, KC_LCBR, KC_RCBR, KC_MINS, KC_UNDS,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
-    CT_BSLS, AL_LBRC,  KC_RBRC,  KC_GRV,  KC_TILD,        KC_DEL,  KC_TAB, KC_ESC,  KC_RALT,  KC_RCTL,
+    KC_SLSH, KC_LCBR, KC_RCBR, KC_MINS, KC_UNDS,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
+    KC_BSLS, KC_LBRC,  KC_RBRC,  KC_GRV,  KC_TILD,        KC_DEL,  KC_BSPC, KC_TAB,  KC_ESC,  XXXXXXX,
                           _______, _______,        _______, _______
   ),
   
