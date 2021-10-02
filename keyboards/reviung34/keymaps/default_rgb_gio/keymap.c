@@ -49,15 +49,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_reviung34(
     KC_F9, KC_F10, KC_F11, KC_F12, XXXXXXX,            KC_PLUS, KC_7, KC_8, KC_9, KC_ASTR,
-    KC_F5, KC_F6,  KC_F7, KC_F8, XXXXXXX,              KC_MINS, KC_4, KC_5,  KC_6, KC_0,
+    LSFT_T(KC_F5), LALT_T(KC_F6),  LCTL_T(KC_F7), LGUI_T(KC_F8), XXXXXXX,              KC_MINS, LGUI_T(KC_4), LCTL_T(KC_5),  LALT_T(KC_6), LSFT_T(KC_0),
     KC_F1, KC_F2,  KC_F3, KC_F4, KC_SPC,              KC_SLSH, KC_1, KC_2, KC_3, KC_EQL,
                         _______, _______,              _______, _______
   ),
 
   [_RAISE] = LAYOUT_reviung34(
-    KC_QUES, KC_LPRN, KC_RPRN, KC_PIPE, XXXXXXX,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX,
-    KC_SLSH, KC_LCBR, KC_RCBR, KC_MINS, KC_UNDS,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
-    KC_BSLS, KC_LBRC,  KC_RBRC,  KC_GRV,  KC_TILD,        KC_DEL,  KC_BSPC, KC_TAB,  KC_ESC,  XXXXXXX,
+    KC_QUES, KC_LCBR, KC_RCBR, KC_PIPE, XXXXXXX,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX,
+    LSFT_T(KC_SLSH), LALT_T(KC_LBRC), LCTL_T(KC_RBRC), LGUI_T(KC_MINS), KC_UNDS,        KC_LEFT, LGUI_T(KC_DOWN), LCTL_T(KC_UP),   LALT_T(KC_RGHT), KC_RSHIFT,
+    KC_BSLS, KC_LPRN,  KC_RPRN,  KC_GRV,  KC_TILD,        KC_DEL,  KC_BSPC, KC_TAB,  KC_ESC,  XXXXXXX,
                           _______, _______,        _______, _______
   ),
   
