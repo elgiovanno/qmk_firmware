@@ -17,6 +17,8 @@
 
 enum layer_names {
   _BASE,
+  LAYER_2,
+  LAYER_3,
   _LOWER,
   _RAISE,
   _ADJUST
@@ -26,30 +28,34 @@ enum layer_names {
 #define RAISE  MO(_RAISE)
 #define ADJUST  MO(_ADJUST)
 
-#define CT_Z  LCTL_T(KC_Z)
-#define CT_BSLS  LCTL_T(KC_BSLS)
-#define CT_Z  LCTL_T(KC_Z)
-#define CT_QUOT RCTL_T(KC_QUOT)
-#define GUI_ESC LGUI_T(KC_ESC)
-#define AL_X  LALT_T(KC_X)
-#define AL_DT RALT_T(KC_DOT)
-#define AL_LBRC RALT_T(KC_LBRC)
-#define AL_ESC RALT_T(KC_ESC)
 #define LO_ENT LT(LOWER, KC_ENT)
 #define RA_SPC LT(RAISE, KC_SPC)
-#define SF_BSPC RSFT_T(KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_reviung34(
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
     LSFT_T(KC_A),     LALT_T(KC_R),    LCTL_T(KC_S),    LGUI_T(KC_T),    KC_G,          KC_M,    RGUI_T(KC_N),    RCTL_T(KC_E),    RALT_T(KC_I),    RSFT_T(KC_O),
     KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,          KC_K,    KC_H,    KC_COMMA,   KC_DOT,   KC_QUOT,
-                        LO_ENT,  LO_ENT,          RA_SPC, RA_SPC  
+                        LO_ENT,  XXXXXXX,          XXXXXXX, RA_SPC  
+  ),
+
+  [LAYER_2] = LAYOUT_reviung34(
+    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
+    KC_A,     LALT_T(KC_R),    LCTL_T(KC_S),    KC_T,    KC_G,          KC_M,    KC_N,    RCTL_T(KC_E),    RALT_T(KC_I),    KC_O,
+    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,          KC_K,    KC_H,    KC_COMMA,   KC_DOT,   KC_QUOT,
+                        LO_ENT,  KC_LSHIFT,          KC_RGUI, RA_SPC  
+  ),
+
+  [LAYER_3] = LAYOUT_reviung34(
+    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
+    LSFT_T(KC_A),     KC_R,    KC_S,    LGUI_T(KC_T),    KC_G,          KC_M,    RGUI_T(KC_N),    KC_E,    KC_I,    RSFT_T(KC_O),
+    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,          KC_K,    KC_H,    KC_COMMA,   KC_DOT,   KC_QUOT,
+                        LO_ENT,  KC_LALT,          KC_RCTL, RA_SPC  
   ),
 
   [_LOWER] = LAYOUT_reviung34(
     KC_F9, KC_F10, KC_F11, KC_F12, XXXXXXX,            KC_PLUS, KC_7, KC_8, KC_9, KC_ASTR,
-    LSFT_T(KC_F5), LALT_T(KC_F6),  LCTL_T(KC_F7), LGUI_T(KC_F8), XXXXXXX,              KC_MINS, LGUI_T(KC_4), LCTL_T(KC_5),  LALT_T(KC_6), LSFT_T(KC_0),
+    LSFT_T(KC_F5), LALT_T(KC_F6),  LCTL_T(KC_F7), LGUI_T(KC_F8), RESET,              KC_MINS, LGUI_T(KC_4), LCTL_T(KC_5),  LALT_T(KC_6), LSFT_T(KC_0),
     KC_F1, KC_F2,  KC_F3, KC_F4, KC_SPC,              KC_SLSH, KC_1, KC_2, KC_3, KC_EQL,
                         _______, _______,              _______, _______
   ),
@@ -64,7 +70,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT_reviung34(
     RGB_VAI, RGB_SAI, RGB_HUI, RGB_MOD, RGB_TOG,       KC_BRIU,   KC_VOLU,   KC_MPLY,   KC_MNXT,   XXXXXXX,  
     RGB_VAD, RGB_SAD, RGB_HUD, RGB_RMOD,XXXXXXX,       KC_BRID,   KC_VOLD,   KC_MPRV,   XXXXXXX,   XXXXXXX, 
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, RESET,         XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,         TG(_BASE),  TG(LAYER_2),  TG(LAYER_3), XXXXXXX, XXXXXXX,
                               _______, _______,       _______, _______
   ),
 };
