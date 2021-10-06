@@ -26,15 +26,15 @@ enum layer_names {
 #define RAISE  MO(_RAISE)
 #define ADJUST  MO(_ADJUST)
 
-#define LO_ENT LT(LOWER, KC_ENT)
-#define RA_SPC LT(RAISE, KC_SPC)
+#define LO_SPC LT(LOWER, KC_SPC)
+#define RA_BSPC LT(RAISE, KC_BSPC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_reviung34(
     KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,          KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN,
     KC_A,     KC_R,    KC_S,    KC_T,    KC_G,          KC_M,    KC_N,    KC_E,    KC_I,    KC_O,
     LCTL_T(KC_Z),    LALT_T(KC_X),    KC_C,    KC_D,    KC_V,          KC_K,    KC_H,    KC_COMMA,   RALT_T(KC_DOT),   RCTL_T(KC_QUOT),
-                        LO_ENT,  KC_LSHIFT,          KC_RGUI, RA_SPC  
+                        LO_SPC,  KC_LSHIFT,          KC_RGUI, RA_BSPC  
   ),
 
   [_LOWER] = LAYOUT_reviung34(
@@ -46,8 +46,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_reviung34(
     KC_QUES, KC_LPRN, KC_RPRN, KC_PIPE, XXXXXXX,        KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX,
-    KC_SLSH, KC_LCBR, KC_RCBR, KC_MINS, KC_UNDS,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,
-    KC_BSLS, KC_LBRC, KC_RBRC, KC_GRV,  KC_TILD,        KC_DEL,  KC_BSPC, KC_TAB,  KC_ESC,  XXXXXXX,
+    KC_SLSH, KC_LCBR, KC_RCBR, KC_MINS, KC_UNDS,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_ENT,
+    KC_BSLS, KC_LBRC, KC_RBRC, KC_GRV,  KC_TILD,        KC_DEL,  KC_TAB,  KC_ESC,  KC_RALT, KC_RCTL,
                           _______, _______,        _______, _______
   ),
   
